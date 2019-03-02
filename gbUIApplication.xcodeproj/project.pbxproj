@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		DBAE1166222AA14A005F0AC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAE1165222AA14A005F0AC4 /* AppDelegate.swift */; };
-		DBAE1168222AA14A005F0AC4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAE1167222AA14A005F0AC4 /* ViewController.swift */; };
 		DBAE116B222AA14A005F0AC4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBAE1169222AA14A005F0AC4 /* Main.storyboard */; };
 		DBAE116D222AA14C005F0AC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBAE116C222AA14C005F0AC4 /* Assets.xcassets */; };
 		DBAE1170222AA14C005F0AC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBAE116E222AA14C005F0AC4 /* LaunchScreen.storyboard */; };
+		DBAE1178222AA9C8005F0AC4 /* LoginFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAE1177222AA9C8005F0AC4 /* LoginFormViewController.swift */; };
+		DBAE117C222AAFC8005F0AC4 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAE117B222AAFC8005F0AC4 /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DBAE1162222AA14A005F0AC4 /* gbUIApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gbUIApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBAE1165222AA14A005F0AC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DBAE1167222AA14A005F0AC4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DBAE116A222AA14A005F0AC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DBAE116C222AA14C005F0AC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBAE116F222AA14C005F0AC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DBAE1171222AA14C005F0AC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBAE1177222AA9C8005F0AC4 /* LoginFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormViewController.swift; sourceTree = "<group>"; };
+		DBAE117B222AAFC8005F0AC4 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,31 @@
 		DBAE1164222AA14A005F0AC4 /* gbUIApplication */ = {
 			isa = PBXGroup;
 			children = (
+				DBAE117A222AAFAD005F0AC4 /* Controllers */,
+				DBAE1179222AAFA5005F0AC4 /* Helpers */,
 				DBAE1165222AA14A005F0AC4 /* AppDelegate.swift */,
-				DBAE1167222AA14A005F0AC4 /* ViewController.swift */,
 				DBAE1169222AA14A005F0AC4 /* Main.storyboard */,
 				DBAE116C222AA14C005F0AC4 /* Assets.xcassets */,
 				DBAE116E222AA14C005F0AC4 /* LaunchScreen.storyboard */,
 				DBAE1171222AA14C005F0AC4 /* Info.plist */,
 			);
 			path = gbUIApplication;
+			sourceTree = "<group>";
+		};
+		DBAE1179222AAFA5005F0AC4 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DBAE117B222AAFC8005F0AC4 /* Helpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		DBAE117A222AAFAD005F0AC4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DBAE1177222AA9C8005F0AC4 /* LoginFormViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +154,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBAE1168222AA14A005F0AC4 /* ViewController.swift in Sources */,
+				DBAE1178222AA9C8005F0AC4 /* LoginFormViewController.swift in Sources */,
+				DBAE117C222AAFC8005F0AC4 /* Helpers.swift in Sources */,
 				DBAE1166222AA14A005F0AC4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,7 +302,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = gbUIApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -290,6 +312,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ealesid.gbUIApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -299,7 +322,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = gbUIApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -307,6 +332,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ealesid.gbUIApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
