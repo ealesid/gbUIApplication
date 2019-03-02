@@ -11,6 +11,71 @@ class LoginFormViewController: UIViewController {
     private let demoUser = "user"
     private let demoUserPassword = "demo"
     
+    // MARK: - Init
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        self.addNotifications()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.addNotifications()
+    }
+    
+    deinit {
+        self.removeNotifications()
+    }
+    
+    // MARK: - Notifications
+
+    private func addNotifications() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWasShown(notification:)),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide(notification:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+    }
+    
+    private func removeNotifications() {
+        NotificationCenter.default.removeObserver(
+            self, name: UIResponder.keyboardWillShowNotification, object: nil
+        )
+        NotificationCenter.default.removeObserver(
+            self, name: UIResponder.keyboardWillHideNotification, object: nil
+        )
+    }
+    
+    @objc private func keyboardWasShown(notification: Notification) {
+        guard let userInfo = notification.userInfo as NSDictionary? else {
+            return
+        }
+        guard let keyboardFrame = userInfo.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as? NSValue else {
+            return
+        }
+        
+        let keyboardHeight = keyboardFrame.cgRectValue.size.height
+        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardHeight, right: 0.0)
+        
+        self.scrollView?.contentInset = contentInsets
+        self.scrollView?.scrollIndicatorInsets = contentInsets
+    }
+    
+    @objc private func keyboardWillHide(notification: Notification) {
+        let contentInsets = UIEdgeInsets.zero
+        self.scrollView?.contentInset = contentInsets
+        self.scrollView?.scrollIndicatorInsets = contentInsets
+    }
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,5 +112,10 @@ class LoginFormViewController: UIViewController {
         } else {
             print("Wrong username or password")
         }
+    }
+    
+    @IBAction func clodeKeyboardAction() {
+        print("closeKeybordAction")
+        self.view.endEditing(true)
     }
 }
