@@ -8,6 +8,8 @@ class LoginFormViewController: UIViewController {
     @IBOutlet weak var textFieldPassword: UITextField!
     @IBOutlet weak var buttonLogin: UIButton!
     
+    private let segueAppStart = "appStart"
+    
     private let demoUser = "user"
     private let demoUserPassword = "demo"
     
@@ -86,6 +88,8 @@ class LoginFormViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
         self.textFieldUsername.underlined()
         self.textFieldPassword.underlined()
 
@@ -109,6 +113,7 @@ class LoginFormViewController: UIViewController {
         
         if user == self.demoUser && password == self.demoUserPassword {
             print("Login Successful")
+            self.performSegue(withIdentifier: self.segueAppStart, sender: self)
         } else {
             print("Wrong username or password")
         }
@@ -118,4 +123,6 @@ class LoginFormViewController: UIViewController {
         print("closeKeybordAction")
         self.view.endEditing(true)
     }
+    
+    @IBAction func logout(segue: UIStoryboardSegue) {}
 }
