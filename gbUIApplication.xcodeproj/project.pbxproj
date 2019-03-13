@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB429C3422396F3600B61F9F /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB429C3322396F3600B61F9F /* Friend.swift */; };
+		DB429C3622396F5500B61F9F /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB429C3522396F5500B61F9F /* Group.swift */; };
 		DBAE1166222AA14A005F0AC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAE1165222AA14A005F0AC4 /* AppDelegate.swift */; };
 		DBAE116B222AA14A005F0AC4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBAE1169222AA14A005F0AC4 /* Main.storyboard */; };
 		DBAE116D222AA14C005F0AC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBAE116C222AA14C005F0AC4 /* Assets.xcassets */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB429C3322396F3600B61F9F /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		DB429C3522396F5500B61F9F /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		DBAE1162222AA14A005F0AC4 /* gbUIApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gbUIApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBAE1165222AA14A005F0AC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBAE116A222AA14A005F0AC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -37,6 +41,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB429C3222396F2B00B61F9F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DB429C3322396F3600B61F9F /* Friend.swift */,
+				DB429C3522396F5500B61F9F /* Group.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		DBAE1159222AA14A005F0AC4 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +69,7 @@
 		DBAE1164222AA14A005F0AC4 /* gbUIApplication */ = {
 			isa = PBXGroup;
 			children = (
+				DB429C3222396F2B00B61F9F /* Models */,
 				DBAE117A222AAFAD005F0AC4 /* Controllers */,
 				DBAE1179222AAFA5005F0AC4 /* Helpers */,
 				DBAE1165222AA14A005F0AC4 /* AppDelegate.swift */,
@@ -157,6 +171,8 @@
 				DBAE1178222AA9C8005F0AC4 /* LoginFormViewController.swift in Sources */,
 				DBAE117C222AAFC8005F0AC4 /* Helpers.swift in Sources */,
 				DBAE1166222AA14A005F0AC4 /* AppDelegate.swift in Sources */,
+				DB429C3622396F5500B61F9F /* Group.swift in Sources */,
+				DB429C3422396F3600B61F9F /* Friend.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
