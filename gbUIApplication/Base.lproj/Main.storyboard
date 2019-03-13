@@ -148,7 +148,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0YF-sj-f3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="v4G-Oy-pi1" userLabel="Exit" sceneMemberID="exit"/>
@@ -219,7 +218,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d9B-7p-uCC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="fRN-fo-dzF" userLabel="Exit" sceneMemberID="exit"/>
