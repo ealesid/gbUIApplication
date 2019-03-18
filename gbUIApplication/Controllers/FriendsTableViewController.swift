@@ -10,11 +10,14 @@ class FriendsTableViewController: UITableViewController {
         Friend(name: "3rd Friend"),
         ]
     
+    var filteredFriends: [Friend] = []
+    
     private var selectedFriend: Friend?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.filteredFriends = friends
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -30,13 +33,13 @@ class FriendsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.friends.count
+        return self.filteredFriends.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! FriendsTableViewCell
         
-        cell.setFriend(self.friends[indexPath.row])
+        cell.setFriend(self.filteredFriends[indexPath.row])
         
         return cell
     }
@@ -63,11 +66,34 @@ class FriendsTableViewController: UITableViewController {
         
         if let identifier = segue.identifier, identifier == "showFriendInfo" {
             if let destinationVC = segue.destination  as? FriendCollectionViewController {
-                destinationVC.friend = self.friends[self.tableView.indexPathForSelectedRow!.row]
+                destinationVC.friend = self.filteredFriends[self.tableView.indexPathForSelectedRow!.row]
             }
         }
         
         
     }
     
+}
+
+
+extension FriendsTableViewController {
+    func filter(query: String) {
+        self.filteredFriends.removeAll()
+        
+        var isInFilter = true
+        
+        for friend in self.friends {
+            if query.count > 0 { isInFilter = (friend.name?.lowercased().contains(query.lowercased()))! }
+            if isInFilter { self.filteredFriends.append(friend) }
+        }
+        
+        self.tableView.reloadData()
+    }
+}
+
+
+extension FriendsTableViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.filter(query: searchText)
+    }
 }
