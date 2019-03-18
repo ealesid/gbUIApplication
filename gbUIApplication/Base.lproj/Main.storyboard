@@ -113,60 +113,51 @@
             </objects>
             <point key="canvasLocation" x="942" y="23"/>
         </scene>
-        <!--ToTableView-->
+        <!--Groups-->
         <scene sceneID="rHi-Yc-e4t">
             <objects>
-                <viewController title="ToTableView" id="HsB-XS-EKi" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Bmn-X6-8aC">
+                <viewController storyboardIdentifier="GroupsTableViewController" title="Groups" id="HsB-XS-EKi" customClass="GroupsTableViewController" customModule="gbUIApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Orx-pu-asm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wv9-HW-7Fa">
-                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="jCM-ID-Yer">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jCM-ID-Yer" id="bOf-y0-rlc">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cbT-yq-qVI">
-                                                    <rect key="frame" x="4" y="-0.33333333333333215" width="44" height="44.333333333333329"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="44" id="aDl-ae-iUJ"/>
-                                                        <constraint firstAttribute="height" constant="44" id="r9b-Sl-cpC"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="llF-SQ-zQr">
-                                                    <rect key="frame" x="56" y="11.333333333333336" width="315" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="llF-SQ-zQr" firstAttribute="centerY" secondItem="bOf-y0-rlc" secondAttribute="centerY" id="G5m-dG-t6L"/>
-                                                <constraint firstItem="cbT-yq-qVI" firstAttribute="centerY" secondItem="bOf-y0-rlc" secondAttribute="centerY" id="Jk0-En-kSC"/>
-                                                <constraint firstAttribute="trailing" secondItem="llF-SQ-zQr" secondAttribute="trailing" constant="4" id="KsA-Ev-Asn"/>
-                                                <constraint firstItem="cbT-yq-qVI" firstAttribute="leading" secondItem="bOf-y0-rlc" secondAttribute="leading" constant="4" id="PLd-tr-hnV"/>
-                                                <constraint firstItem="llF-SQ-zQr" firstAttribute="leading" secondItem="cbT-yq-qVI" secondAttribute="trailing" constant="8" id="z1M-ii-MNP"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="iXE-7Q-xVc" firstAttribute="bottom" secondItem="Wv9-HW-7Fa" secondAttribute="bottom" id="RcN-hq-eWy"/>
-                            <constraint firstItem="Wv9-HW-7Fa" firstAttribute="leading" secondItem="iXE-7Q-xVc" secondAttribute="leading" id="YAF-eC-ovU"/>
-                            <constraint firstItem="Wv9-HW-7Fa" firstAttribute="top" secondItem="iXE-7Q-xVc" secondAttribute="top" id="Ywa-bF-WqO"/>
-                            <constraint firstItem="iXE-7Q-xVc" firstAttribute="trailing" secondItem="Wv9-HW-7Fa" secondAttribute="trailing" id="b0S-xt-vvF"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="iXE-7Q-xVc"/>
-                    </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupsTableViewCell" id="YbY-nm-4eo" customClass="GroupsTableViewCell" customModule="gbUIApplication" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YbY-nm-4eo" id="2KI-QB-z5v">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gcz-Si-YEX">
+                                            <rect key="frame" x="8" y="2" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="aSV-4c-uz4"/>
+                                                <constraint firstAttribute="width" constant="40" id="crI-je-btN"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zjf-se-HW7">
+                                            <rect key="frame" x="56" y="11.333333333333336" width="315" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Zjf-se-HW7" secondAttribute="trailing" constant="4" id="4oa-U4-5jL"/>
+                                        <constraint firstItem="Zjf-se-HW7" firstAttribute="leading" secondItem="Gcz-Si-YEX" secondAttribute="trailing" constant="8" id="9xn-0v-Oa3"/>
+                                        <constraint firstItem="Gcz-Si-YEX" firstAttribute="centerY" secondItem="2KI-QB-z5v" secondAttribute="centerY" id="AHA-86-Lhx"/>
+                                        <constraint firstItem="Gcz-Si-YEX" firstAttribute="leading" secondItem="2KI-QB-z5v" secondAttribute="leading" constant="8" id="eQA-Nz-pAZ"/>
+                                        <constraint firstItem="Zjf-se-HW7" firstAttribute="centerY" secondItem="2KI-QB-z5v" secondAttribute="centerY" id="zsR-gS-KfG"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="labelGroupName" destination="Zjf-se-HW7" id="NiS-mg-HMa"/>
+                                    <outlet property="viewGroupImage" destination="Gcz-Si-YEX" id="bPt-qn-YKU"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
                     <navigationItem key="navigationItem" title="Yours Groups" id="T7F-Bd-lYo">
                         <barButtonItem key="backBarButtonItem" title="Yours groups" id="XxA-hX-5iN"/>
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="fsy-sF-quy">
@@ -176,7 +167,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="eZP-24-Hyi">
                             <connections>
-                                <segue destination="iOm-3B-Z8T" kind="show" identifier="toTableView" id="cal-eD-mkq"/>
+                                <segue destination="iOm-3B-Z8T" kind="show" identifier="addGroup" id="cal-eD-mkq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -189,14 +180,22 @@
         <!--Groups-->
         <scene sceneID="Kv0-Y2-nQy">
             <objects>
-                <tableViewController title="Groups" id="iOm-3B-Z8T" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AddGroupTableViewController" title="Groups" id="iOm-3B-Z8T" customClass="AddGroupTableViewController" customModule="gbUIApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="izA-HX-vPu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="Joe-aP-x1c">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="iOm-3B-Z8T" id="b2G-43-310"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="zFH-Tb-YKn">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewGroupTableViewCell" id="zFH-Tb-YKn" customClass="NewGroupTableViewCell" customModule="gbUIApplication" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zFH-Tb-YKn" id="vao-aO-Pc7">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
@@ -224,6 +223,10 @@
                                         <constraint firstItem="Gn5-fs-Jq3" firstAttribute="centerY" secondItem="vao-aO-Pc7" secondAttribute="centerY" id="zv6-Zl-lLl"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="labelGroupName" destination="gnq-eQ-Ko4" id="Bgc-S3-20l"/>
+                                    <outlet property="viewGroupImage" destination="Gn5-fs-Jq3" id="X8R-6E-y8Q"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -244,9 +247,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="8uQ-Ci-Ptn">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendsTableViewCell" id="DxC-bE-IUC" customClass="FriendsTableViewCell" customModule="gbUIApplication" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DxC-bE-IUC" id="LRj-82-Xqy">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
