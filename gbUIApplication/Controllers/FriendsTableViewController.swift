@@ -1,6 +1,6 @@
 import UIKit
 
-private let reuseIdentifier = "FriendsTableViewCell"
+private let reusableCell = "FriendsTableViewCell"
 
 class FriendsTableViewController: UITableViewController {
     
@@ -10,14 +10,20 @@ class FriendsTableViewController: UITableViewController {
         Friend(name: "3rd Friend"),
         ]
     
-    var filteredFriends: [Friend] = []
+    var friendsFiltered: [Friend] = []
+    
+    var sections: [String] = []
+    var friendsInSections: [String: [Friend]] = [:]
     
     private var selectedFriend: Friend?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.filteredFriends = friends
+        self.friendsFiltered = self.friends
+        
+        fillSections()
+        fillSectionsWithFriends()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -29,19 +35,34 @@ class FriendsTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return sections.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.filteredFriends.count
+        let sectionName: String = self.sections[section]
+        if let friendsInSection: [Friend] = self.friendsInSections[sectionName] { return friendsInSection.count }
+        return 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! FriendsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: reusableCell, for: indexPath) as! FriendsTableViewCell
         
-        cell.setFriend(self.filteredFriends[indexPath.row])
-        
+        let sectionName: String = self.sections[indexPath.section]
+        if let friendsInSection: [Friend] = self.friendsInSections[sectionName] {
+            cell.setFriend(friendsInSection[indexPath.row])
+        }
+
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.text = self.sections[section]
+        label.textAlignment = .center
+        label.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
+        label.textColor = UIColor.darkGray
+        
+        return label
     }
     
     /*
@@ -66,7 +87,7 @@ class FriendsTableViewController: UITableViewController {
         
         if let identifier = segue.identifier, identifier == "showFriendInfo" {
             if let destinationVC = segue.destination  as? FriendCollectionViewController {
-                destinationVC.friend = self.filteredFriends[self.tableView.indexPathForSelectedRow!.row]
+                destinationVC.friend = self.friendsFiltered[self.tableView.indexPathForSelectedRow!.row]
             }
         }
         
@@ -78,13 +99,39 @@ class FriendsTableViewController: UITableViewController {
 
 extension FriendsTableViewController {
     func filter(query: String) {
-        self.filteredFriends.removeAll()
+        self.friendsFiltered.removeAll()
         
         var isInFilter = true
         
         for friend in self.friends {
             if query.count > 0 { isInFilter = (friend.name?.lowercased().contains(query.lowercased()))! }
-            if isInFilter { self.filteredFriends.append(friend) }
+            if isInFilter { self.friendsFiltered.append(friend) }
+        }
+        
+        self.fillSections()
+        self.fillSectionsWithFriends()
+    }
+    
+    func fillSections() {
+        sections = Array(Set(friendsFiltered.map { String(($0.name?.first)!) })).sorted()
+        print("\n\(#file)\n\t\(#function):\t\(#line)\n\t\(sections)")
+    }
+    
+    func fillSectionsWithFriends() {
+        self.friendsInSections.removeAll()
+        
+        for friend in self.friendsFiltered {
+            guard let firstLetter = friend.name?.first else { continue }
+            
+            var friends: [Friend] = []
+            
+            if let friendsInSections = self.friendsInSections[String(firstLetter)] {
+                friends.append(contentsOf: friendsInSections)
+            }
+            
+            friends.append(friend)
+            
+            self.friendsInSections[String(firstLetter)] = friends
         }
         
         self.tableView.reloadData()
