@@ -114,7 +114,7 @@ extension FriendsTableViewController {
     
     func fillSections() {
         sections = Array(Set(friendsFiltered.map { String(($0.name?.first)!) })).sorted()
-        print("\n\(#file)\n\t\(#function):\t\(#line)\n\t\(sections)")
+//        print("\n\(#file)\n\t\(#function):\t\(#line)\n\t\(sections)")
     }
     
     func fillSectionsWithFriends() {
