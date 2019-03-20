@@ -87,7 +87,10 @@ class FriendsTableViewController: UITableViewController {
         
         if let identifier = segue.identifier, identifier == "showFriendInfo" {
             if let destinationVC = segue.destination  as? FriendCollectionViewController {
-                destinationVC.friend = self.friendsFiltered[self.tableView.indexPathForSelectedRow!.row]
+                let sectionName = self.sections[tableView.indexPathForSelectedRow!.section]
+                if let friendsInSection: [Friend] = self.friendsInSections[sectionName] {
+                    destinationVC.friend = friendsInSection[tableView.indexPathForSelectedRow!.row]
+                }
             }
         }
         
@@ -98,6 +101,7 @@ class FriendsTableViewController: UITableViewController {
 
 
 extension FriendsTableViewController {
+    
     func filter(query: String) {
         self.friendsFiltered.removeAll()
         
@@ -125,8 +129,8 @@ extension FriendsTableViewController {
             
             var friends: [Friend] = []
             
-            if let friendsInSections = self.friendsInSections[String(firstLetter)] {
-                friends.append(contentsOf: friendsInSections)
+            if let friendsInSection = self.friendsInSections[String(firstLetter)] {
+                friends.append(contentsOf: friendsInSection)
             }
             
             friends.append(friend)

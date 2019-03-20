@@ -76,3 +76,14 @@ extension UIView {
         self.layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: frame.width / 2).cgPath
     }
 }
+
+
+
+extension UITapGestureRecognizer {
+    override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent) {
+        if self.state == .possible { self.state = .began }
+    }
+    override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent) {
+        self.state = .recognized
+    }
+}
