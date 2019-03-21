@@ -92,11 +92,14 @@ extension UITapGestureRecognizer {
 var vLoader : UIView?
 
 extension UIViewController {
-    func showLoader(on view: UIView, size: CGSize, color: UIColor) {
+    func showLoader(on view: UIView) {
 
         let loaderView = UIView(frame: view.frame)
         loaderView.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
         view.addSubview(loaderView)
+        
+        let color = UIColor(displayP3Red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9)
+        let size = CGSize(width: 15, height: 15)
 
         let circleSpacing: CGFloat = 50
         let circleSize: CGFloat = (size.width - 2 * circleSpacing) / 3
