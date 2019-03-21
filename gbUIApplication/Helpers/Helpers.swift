@@ -106,11 +106,32 @@ extension UIViewController {
         let x: CGFloat = (view.frame.width - size.width * 3) / 2
         let y: CGFloat = (view.frame.height + circleSize * 5) / 2
         
+        // Animation
+        let duration: CFTimeInterval = 0.75
+        let beginTime = CACurrentMediaTime()
+        let beginTimes: [CFTimeInterval] = [0.12, 0.24, 0.36]
+        let timingFunction = CAMediaTimingFunction(controlPoints: 0.2, 0.68, 0.18, 1.08)
+        let animation = CAKeyframeAnimation(keyPath: "transform.scale")
+        
+        animation.keyTimes = [0, 0.3, 1]
+        animation.timingFunctions = [timingFunction, timingFunction]
+        animation.values = [1, 0.3, 1]
+        animation.duration = duration
+        animation.repeatCount = HUGE
+        animation.isRemovedOnCompletion = false
+        
+        // Draw circles
         for i in 0 ..< 3 {
             let layer = CAShapeLayer()
-            let circle = UIBezierPath(ovalIn: CGRect(origin: CGPoint(x: x + circleSize * CGFloat(i) + circleSpacing * CGFloat(i), y: y), size: size))
-            layer.path = circle.cgPath
+            let path = UIBezierPath()
+            path.addArc(withCenter:
+                CGPoint(x: size.width / 2, y: size.height / 2), radius: size.width / 2, startAngle: 0, endAngle: CGFloat(2 * Double.pi), clockwise: false
+            )
+            layer.path = path.cgPath
+            layer.frame = CGRect(x: x + circleSize * CGFloat(i) + circleSpacing * CGFloat(i), y: y, width: size.width, height: size.height)
             layer.fillColor = color.cgColor
+            animation.beginTime = beginTime + beginTimes[i]
+            layer.add(animation, forKey: "animation")
             view.layer.addSublayer(layer)
         }
         
