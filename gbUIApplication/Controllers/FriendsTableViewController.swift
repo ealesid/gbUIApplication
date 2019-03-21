@@ -23,6 +23,8 @@ class FriendsTableViewController: UITableViewController {
         
         showLoader(on: self.view)
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { self.removeLoader() }
+        
         self.friendsFiltered = self.friends
         
         fillSections()

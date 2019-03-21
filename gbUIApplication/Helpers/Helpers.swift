@@ -132,16 +132,18 @@ extension UIViewController {
             layer.fillColor = color.cgColor
             animation.beginTime = beginTime + beginTimes[i]
             layer.add(animation, forKey: "animation")
-            view.layer.addSublayer(layer)
+            loaderView.layer.addSublayer(layer)
         }
         
         vLoader = loaderView
     }
     
     func removeLoader() {
-        DispatchQueue.main.async {
-            vLoader?.removeFromSuperview()
-            vLoader = nil
-        }
+        vLoader?.removeFromSuperview()
+        vLoader = nil
+//        DispatchQueue.main.async {
+//            vLoader?.removeFromSuperview()
+//            vLoader = nil
+//        }
     }
 }
