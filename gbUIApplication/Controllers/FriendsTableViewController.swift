@@ -20,6 +20,9 @@ class FriendsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        showLoader(on: self.view, size: CGSize(width: 15, height: 15), color: UIColor(displayP3Red: 0.9, green: 0.9, blue: 0.9, alpha: 0.9))
+        
         self.friendsFiltered = self.friends
         
         fillSections()

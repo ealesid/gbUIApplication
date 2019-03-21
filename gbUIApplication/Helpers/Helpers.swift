@@ -87,3 +87,37 @@ extension UITapGestureRecognizer {
         self.state = .recognized
     }
 }
+
+
+var vLoader : UIView?
+
+extension UIViewController {
+    func showLoader(on view: UIView, size: CGSize, color: UIColor) {
+
+        let loaderView = UIView(frame: view.frame)
+        loaderView.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        view.addSubview(loaderView)
+
+        let circleSpacing: CGFloat = 50
+        let circleSize: CGFloat = (size.width - 2 * circleSpacing) / 3
+        let x: CGFloat = (view.frame.width - size.width * 3) / 2
+        let y: CGFloat = (view.frame.height + circleSize * 5) / 2
+        
+        for i in 0 ..< 3 {
+            let layer = CAShapeLayer()
+            let circle = UIBezierPath(ovalIn: CGRect(origin: CGPoint(x: x + circleSize * CGFloat(i) + circleSpacing * CGFloat(i), y: y), size: size))
+            layer.path = circle.cgPath
+            layer.fillColor = color.cgColor
+            view.layer.addSublayer(layer)
+        }
+        
+        vLoader = loaderView
+    }
+    
+    func removeLoader() {
+        DispatchQueue.main.async {
+            vLoader?.removeFromSuperview()
+            vLoader = nil
+        }
+    }
+}
