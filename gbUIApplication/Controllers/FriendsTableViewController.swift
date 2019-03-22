@@ -22,7 +22,6 @@ class FriendsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         showLoader(on: self.view)
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) { self.removeLoader() }
         
         self.friendsFiltered = self.friends

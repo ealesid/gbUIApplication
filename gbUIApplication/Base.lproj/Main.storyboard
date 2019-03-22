@@ -318,17 +318,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="R2r-pU-WcK">
-                            <size key="itemSize" width="375" height="375"/>
+                            <size key="itemSize" width="375" height="412"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="friendViewCell" id="JKW-us-MEB" customClass="FriendCollectionViewCell" customModule="gbUIApplication" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="412"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="412"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FP9-wr-xya">
@@ -370,16 +370,26 @@
                                                 <outletCollection property="gestureRecognizers" destination="63r-EM-H4C" appends="YES" id="e2F-6W-aaC"/>
                                             </connections>
                                         </view>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Csk-Iz-dL1">
+                                            <rect key="frame" x="157.66666666666666" y="336.33333333333331" width="60" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="9d1-8S-cOZ"/>
+                                                <constraint firstAttribute="height" constant="60" id="NJn-fO-gzi"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                 </view>
                                 <constraints>
                                     <constraint firstItem="FP9-wr-xya" firstAttribute="top" secondItem="JKW-us-MEB" secondAttribute="top" constant="8" id="7H4-4l-E78"/>
                                     <constraint firstItem="pnj-9j-2Xf" firstAttribute="top" secondItem="FP9-wr-xya" secondAttribute="bottom" constant="12" id="P7l-hz-zy9"/>
+                                    <constraint firstItem="Csk-Iz-dL1" firstAttribute="centerX" secondItem="JKW-us-MEB" secondAttribute="centerX" id="Ube-bN-vdh"/>
                                     <constraint firstItem="FP9-wr-xya" firstAttribute="centerX" secondItem="JKW-us-MEB" secondAttribute="centerX" id="YQn-gi-4TR"/>
+                                    <constraint firstItem="Csk-Iz-dL1" firstAttribute="top" secondItem="pnj-9j-2Xf" secondAttribute="bottom" constant="16" id="xrU-17-PLe"/>
                                     <constraint firstItem="pnj-9j-2Xf" firstAttribute="centerX" secondItem="JKW-us-MEB" secondAttribute="centerX" id="yJS-n5-36L"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="imageView" destination="J41-Fw-TCo" id="nVZ-dL-pqA"/>
+                                    <outlet property="imageViewLike" destination="Csk-Iz-dL1" id="fyI-Xa-Ra7"/>
                                     <outlet property="labelFriendName" destination="FP9-wr-xya" id="m1P-i7-yLJ"/>
                                     <outlet property="viewFriendPhoto" destination="pnj-9j-2Xf" id="Rh4-Jn-bdb"/>
                                 </connections>
